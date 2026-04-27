@@ -5,9 +5,9 @@ import { Platform } from 'react-native';
 const getHost = () => {
   if (Platform.OS === 'android') {
     // Current machine LAN IP (found via ipconfig)
-    // 10.132.152.241 - Current Wi-Fi IP
+    // 192.168.195.241 - Current Wi-Fi IP
     // IMPORTANT: Your phone and PC MUST be on the same Wi-Fi network.
-    return '10.132.152.241'; 
+    return '192.168.195.241'; 
   }
   return 'localhost';
 };

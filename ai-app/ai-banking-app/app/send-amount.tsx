@@ -184,34 +184,8 @@ export default function SendAmountScreen() {
           ))}
         </View>
         
-        <TouchableOpacity 
-          style={[
-            styles.voiceButton,
-            countdown !== null && { backgroundColor: '#F59E0B' },
-            isListening && { backgroundColor: '#EF4444' },
-            isVerifying && { backgroundColor: '#10B981' }
-          ]}
-          onPress={handleSpeakAmount}
-          disabled={countdown !== null || isListening || isVerifying}
-        >
-          {isVerifying ? (
-            <Loader2 size={32} color="#FFFFFF" />
-          ) : countdown !== null ? (
-            <Text style={styles.voiceText}>{countdown}</Text>
-          ) : (
-            <Mic size={32} color="#FFFFFF" />
-          )}
-          <Text style={styles.voiceText}>
-            {countdown !== null ? 'READY...' : isListening ? 'SPEAK NOW' : isVerifying ? 'PROCESSING...' : (lang === 'en' ? 'Speak Amount' : lang === 'te' ? 'మొత్తం చెప్పండి' : 'राशि बोलें')}
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity 
-          style={[styles.nextButton, !amount && { opacity: 0.5 }]}
-          onPress={handleNext}
-          disabled={!amount}
-        >
-          <Text style={styles.nextButtonText}>{translations[lang].confirm.toUpperCase()}</Text>
+        <TouchableOpacity style={styles.nextButton} onPress={handleNext}>
+          <Text style={styles.nextButtonText}>{lang === 'en' ? 'CONFIRM' : lang === 'te' ? 'నిర్ధారించు' : 'పుष्टि करें'} </Text>
           <Check size={24} color="#FFFFFF" />
         </TouchableOpacity>
       </View>
